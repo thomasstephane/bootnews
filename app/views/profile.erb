@@ -1,0 +1,12 @@
+<%= @user.username %>
+<%= @user.email %>
+<ul>
+  <%@user.posts.each do |post|%>
+    <li><a href="/post/<%=post.id%>"><%=post.title%></a></li>
+  <% end %>
+</ul>
+<ul>
+  <%@user.comments.each do |comment|%>
+    <li><a href="/post/<%=comment.post_id%>"><%=comment.comment%></a></li>
+  <% end %>
+</ul>
