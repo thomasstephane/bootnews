@@ -3,7 +3,7 @@
 end
 
 10.times do |i|
-  Post.create(title: "new post #{i}", user_id: (1 + rand(10)))
+  Post.create(title: "new post #{i}", url: "http://url.com/#{i}", post: "This is some big content for post #{i}", user_id: (1 + rand(10)))
 end
 
 10.times do |i|

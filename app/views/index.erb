@@ -7,5 +7,10 @@
   <% end %>
   </ul>
 </div>
-
-<div class="link"><a href="/login">Login</a></div>
+<% if @user %>
+  <div class="link"><a href="/profile/<%= @user.id%>">Profile</a></div>
+  <div class="link"><a href="/logout">Logout</a></div>
+<% else %>  
+  <div class="link"><a href="/login">Login</a></div>
+  <div class="link"><a href="/signup">Sign up</a></div>
+<% end %>

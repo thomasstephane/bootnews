@@ -1,0 +1,13 @@
+<div class="container">
+  <form name="input" action="/post" method="post">
+    <input type="text" name="title" required placeholder="Title">
+    <input type="test" name="url" required placeholder="Url">
+    <textarea name="post" required placeholder="Type content here."></textarea>
+    <input type="submit" value="Post">
+  </form>
+  
+</div>
+<div class="link"><a href="/">Home</a></div>
+<div class="link"><a href="/profile/<%= @user.id%>">Profile</a></div>
+<div class="link"><a href="/logout">Logout</a></div>
+
