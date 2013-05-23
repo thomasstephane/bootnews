@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  $('button[name="postvote"]').on('click', function(event) {
+  $('.container form button[name="postvote"]').on('click', function(event) {
     event.preventDefault();
     var box = $(this).val();
     $.ajax({
@@ -7,7 +7,7 @@ $(document).ready(function() {
       url: $('form[name="postvoter"]').attr('action'),
       data: ("postvote=" + box)
       }).done(function(data) {
-        $('form[name="postvoter"]').toggle("slow");
+        $('.container form[name="postvoter"]').toggle("slow");
         var score = parseInt($('.post-title span').text());
         $('.post-title span').text(score + data.vote);
       });

@@ -1,14 +1,25 @@
 <div class="container">
+  <div class="profile">
+    <% if @user %>
+    <div class="link"><a href="/profile/<%= @user.id%>">Profile</a></div>
+    <div class="link"><a href="/logout">Logout</a></div>
+    <% else %>  
+    <div class="link"><a href="/login">Login</a></div>
+    <div class="link"><a href="/signup">Sign up</a></div>
+    <% end %>
+  </div>
   <div class="post-title">
-    <h1><%= @post.title + " | votes: "%><span><%= @post.score %></span></h1>
+    <% unless @existing_post_vote %>
+    
+    <form name="postvoter" action="/post/<%=@post.id%>/vote" method="post">
+      <button type="submit" name="postvote" value="Up">V</button>
+      <button type="submit" name="postvote" value="Down">V</button>
+    </form>
+    <% end %>
+    <h1><%= @post.title%></h1><h2>  votes: </h2><h1><span><%= @post.score %></span></h1>
+
     </div>
-  <% unless @existing_post_vote %>
   
-  <form name="postvoter" action="/post/<%=@post.id%>/vote" method="post">
-    <button type="submit" name="postvote" value="Up">Up</button>
-    <button type="submit" name="postvote" value="Down">Down</button>
-  </form>
-  <% end %>
 
   <p><%= @post.url %></p>
   <p><%= @post.post %></p>
@@ -19,8 +30,8 @@
 
       <div class="comment-title">
       <form name="commentvoter" action="/post/<%=@post.id%>/<%=comment.id%>/vote" method="post">
-        <button type="submit" name="commentvote" value="Up" label=<%= comment.id %>>Up</button>
-        <button type="submit" name="commentvote" value="Down" label=<%= comment.id %>>Down</button>
+        <button type="submit" name="commentvote" value="Up" label=<%= comment.id %>>V</button>
+        <button type="submit" name="commentvote" value="Down" label=<%= comment.id %>>V</button>
       </form>
       <% end %>
       <%=comment.comment + " | votes: "%><span><%= comment.score %></span>
@@ -37,14 +48,5 @@
     <textarea name="comment" required placeholder="Type comment here."></textarea>
     <input type="submit" value="Post">
   </form>
-
-
 </div>
-<div class="link"><a href="/profile/<%= @user.id%>">Profile</a></div>
-<div class="link"><a href="/logout">Logout</a></div>
-<% else %>  
-<div class="link"><a href="/login">Login</a></div>
-<div class="link"><a href="/signup">Sign up</a></div>
 <% end %>
-
-<div class="link"><a href="/">Home</a></div>
