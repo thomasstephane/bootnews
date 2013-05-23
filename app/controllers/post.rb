@@ -29,7 +29,7 @@ get '/post' do
     @user = User.find_by_id(session[:user_id])
     erb :create_post
   else
-    redirect '/'
+    redirect '/login'
   end
 end
 

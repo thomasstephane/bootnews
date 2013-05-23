@@ -42,16 +42,18 @@ header {
 
 .container {
   padding: 12px;
-  background-color: #e6e6e4;
+  background: url('../images/back-board.jpg') repeat top left;
   border-radius: 10px;
-  border: 5px solid #111;
+  border: 7px solid #111;
   display: block;
+  box-shadow: 0 1px 30px  rgba(0,0,0,0.7), 0 -1px 60px  rgba(255,255,255,1) inset;
+  -webkit-box-shadow: 0 1px 30px rgba(0,0,0,0.7), 0 -1px 60px  rgba(255,255,255,1) inset ;
   div.profile {
     background: url('../images/eraser.png');
     position : absolute;
     display: inline-block;
     padding-right: 10px;
-    top: 264px;
+    top: 225px;
     right: 50%;
     margin-right: -450px;
     transform:rotate(35deg);
@@ -64,9 +66,10 @@ header {
       max-width: 100px;
       line-height: 140px;
       a {
+        text-shadow: 0 0 1px #eee ;
         max-width: 100px;
         line-height: 140px;
-        color: #e6e6e4;
+        color: #5c5854;
         font-size: 22px;
       }
     }
@@ -75,7 +78,7 @@ header {
     background: url('../images/pen.png') ;
     position : absolute;
     display: inline-block;
-    top: 460px;
+    top: 420px;
     right: 50%;
     margin-right: -500px;
     transform:rotate(35deg);
@@ -90,7 +93,7 @@ header {
     li{
       list-style: none;
       text-align: left;
-      line-height: 25px;
+      line-height: 35px;
       span {
         margin-left: 20px;
         display: inline-block;
@@ -98,15 +101,57 @@ header {
         font-size: 12px;
       }
       img {
-        border-radius: 12px;
+        border-radius: 6px;
         vertical-align: middle;
         display: inline-block;
         margin-right: 20px;
       }
+      div.post-title {
+        display: inline-block;     
+        vertical-align: middle;
+        line-height: 35px;
+        form {
+          display: inline-block;     
+          vertical-align: middle;
+          min-width: 20px;
+          line-height: 35px;
+          button {
+            display: block;     
+            line-height: 12px;
+            font-size: 14px;
+            &[value="Up"] {
+            -webkit-transform:rotate(180deg);
+            }
+          }
+        }
+
+      }
       a { 
         display: inline-block;     
         vertical-align: middle;
-        line-height: 25px;
+        line-height: 35px;
+      }
+    }
+  }
+  div.sub-link {
+    text-align:right;
+    a {
+      font-size: 12px;
+    }
+  }
+  div.create {
+    margin-right: 250px;
+    form {
+      input {
+        margin-top: 20px;
+        display: block;
+        min-width: 100%;
+      }
+      textarea {
+        margin-top: 20px;
+        display: block;
+        min-width: 100%;
+        min-height: 200px;
       }
     }
   }

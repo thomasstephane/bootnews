@@ -12,7 +12,17 @@
   
   <ul>
     <%@posts.each do |post|%>
-    <li><img src=<%=gravatar(post.user_email,25)%>><a href="/post/<%=post.id%>"><%=post.title%><span> votes: <%=post.score%></span></a></li>
+    <li><a href="/profile/<%= post.user_id%>"><img src=<%=gravatar(post.user_email,35)%>></a>
+      <a href="/post/<%=post.id%>"><%=post.title%><span> votes: <%=post.score%></span></a>
+      <% if @existing_post_vote[post.id] %>
+
+      <div class="post-title">
+      <form name="postvoter" action="/post/<%=post.id%>/vote" method="post">
+        <button type="submit" name="postvote" value="Up" label=<%= post.id %>>V</button>
+        <button type="submit" name="postvote" value="Down" label=<%= post.id %>>V</button>
+      </form>
+      <% end %>
+      </li>
     <% end %>
   </ul>
 
