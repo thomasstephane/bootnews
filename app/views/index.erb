@@ -1,16 +1,18 @@
 <div class="container">
-  <h1>Hacker Clone!</h1>
+ <div class="profile">
+   <% if @user %>
+   <div class="link"><a href="/profile/<%= @user.id%>">Profile</a></div>
+   <div class="link"><a href="/logout">Logout</a></div>
+   <% else %>  
+   <div class="link"><a href="/login">Login</a></div>
+   <div class="link"><a href="/signup">Sign up</a></div>
+   <% end %>
+ </div>
   
   <ul>
-  <%@posts.each do |post|%>
-    <li><a href="/post/<%=post.id%>"><%=post.title%></a></li>
-  <% end %>
+    <%@posts.each do |post|%>
+    <li><img src=<%=gravatar(post.user_email,25)%>><a href="/post/<%=post.id%>"><%=post.title%><span> votes: <%=post.score%></span></a></li>
+    <% end %>
   </ul>
+
 </div>
-<% if @user %>
-  <div class="link"><a href="/profile/<%= @user.id%>">Profile</a></div>
-  <div class="link"><a href="/logout">Logout</a></div>
-<% else %>  
-  <div class="link"><a href="/login">Login</a></div>
-  <div class="link"><a href="/signup">Sign up</a></div>
-<% end %>

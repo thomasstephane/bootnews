@@ -1,0 +1,138 @@
+// Blog
+@import '_variables';
+
+.container_post {
+  position: absolute;
+  float:left;
+  min-height: 100%;
+  width: 100%;
+  top: 0;
+  bottom: 0;
+}
+
+.title_post {
+  position:fixed;
+  z-index: 10;
+  height: 45px;
+  width: 100%;
+  float: left;
+  top: 0;
+  right: 0;
+  left: 0;
+  padding: 24px 0;
+  background: url('../images/bg.jpg') repeat top left;
+  border-bottom: 1px solid $base-color;
+  ul {
+    list-style-type: none;
+    li{
+      text-align: left;
+    }
+  }
+  a {
+    z-index: 9;
+    display:inline-block;
+    position: absolute;
+    float: right;
+    height: 20px;
+    width: 60px;
+    margin: 24px;
+    right: 0;
+    top:0
+  }
+}
+
+.blog,
+.content_post {
+  position: relative;
+  min-height: 100%;
+  float: left;
+  width: 940px;
+  margin-left: -506px;
+  left: 50%;
+  padding: 36px;
+  bottom: 0;
+  top: 94px;
+  * {
+    text-align: justify;
+  }
+  hr {
+    width: 100%;
+    border-bottom: 1px solid lightgrey;
+    margin-top:18px;
+    margin-bottom:12px;
+  }
+  h1 {
+    font-size: 36px;
+    text-align: center;
+    margin-bottom:18px;
+  }
+  h2 {
+    font-size: 30px;
+    text-align: center;
+    margin-bottom:14px;
+  }
+  h3 {
+    font-size: 26px;
+    text-align: center;
+    margin-bottom:12px;
+  }
+  h4 {
+    font-size: 22px;
+    text-align: center;
+    margin-bottom:10px;
+  }
+  h5 {
+    font-size: 20px;
+    text-align: center;
+    margin-bottom:8px;
+  }
+
+  h6 {
+    font-size: 18px;
+    text-align: center;
+    margin-bottom:12px;
+  }
+}
+
+.blog {
+  ul {
+      list-style:none;
+    li {
+      list-style:none;
+    }
+  }
+}
+
+.header_blog {
+  position:fixed;
+  z-index: 10;
+  height: 45px;
+  width: 100%;
+  float: left;
+  top: 0;
+  right: 0;
+  left: 0;
+  padding: 24px 0;
+  background: url('../images/bg.jpg') repeat top left;
+  border-bottom: 1px solid $base-color;
+  h3 a{
+    font-size: 36px;
+  }
+}
+
+
+.page {
+  padding-top: 36px;
+  padding-bottom: 24px;
+  border-top: 1px solid lightgrey;
+  vertical-align: middle;
+  text-align: center;
+  p {
+      display: inline-block; 
+  text-align: center;
+    a {
+      display: inline-block; 
+  text-align: center;
+    }
+  }
+}

@@ -20,7 +20,7 @@
       <div class="comment-title">
       <form name="commentvoter" action="/post/<%=@post.id%>/<%=comment.id%>/vote" method="post">
         <button type="submit" name="commentvote" value="Up" label=<%= comment.id %>>Up</button>
-        <button type="submit" name="commentvote" value="Down">Down</button>
+        <button type="submit" name="commentvote" value="Down" label=<%= comment.id %>>Down</button>
       </form>
       <% end %>
       <%=comment.comment + " | votes: "%><span><%= comment.score %></span>
