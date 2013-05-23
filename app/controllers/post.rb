@@ -9,8 +9,18 @@ get '/post/:post_id' do |post_id|
   @post = Post.find_by_id(post_id)
   @comments = Comment.where("post_id = ?", post_id)
   @user = User.find_by_id(session[:user_id])
-  @score = PostVote.where("post_id = ?",post_id).sum('vote')
   @existing_post_vote = PostVote.find_by_user_id_and_post_id(session[:user_id], post_id)
+
+  @existing_comment_vote = {}
+  @comments.each do |comment|
+    check = CommentVote.find_by_user_id_and_comment_id(session[:user_id], comment.id)
+    if check
+      @existing_comment_vote[comment.id] = false
+    else
+      @existing_comment_vote[comment.id] = true
+    end
+  end
+
   erb :post
 end
 

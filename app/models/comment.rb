@@ -4,4 +4,8 @@ class Comment < ActiveRecord::Base
   has_many :comment_votes
   belongs_to :post
   belongs_to :user
+
+  def score
+    CommentVote.where("comment_id = ?", self.id).sum('vote').to_s
+  end
 end
