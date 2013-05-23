@@ -1,5 +1,13 @@
 <div class="container">
-  <h1><%= @post.title %></h1>
+  <h1><%= @post.title + " | votes: " + @score.to_s %></h1>
+  <% unless @existing_post_vote %>
+  
+  <form name="input" action="/post/<%=@post.id%>/vote" method="post">
+    <button type="submit" name="postvote" value="Up">Up</button>
+    <button type="submit" name="postvote" value="Down">Down</button>
+  </form>
+  <% end %>
+
   <p><%= @post.url %></p>
   <p><%= @post.post %></p>
   <ul>
@@ -16,7 +24,8 @@
     <textarea name="comment" required placeholder="Type comment here."></textarea>
     <input type="submit" value="Post">
   </form>
-  
+
+    
 </div>
   <div class="link"><a href="/profile/<%= @user.id%>">Profile</a></div>
   <div class="link"><a href="/logout">Logout</a></div>
