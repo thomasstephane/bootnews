@@ -47,7 +47,7 @@ header {
   border: 5px solid #111;
   display: block;
   div.profile {
-    background: url('../images/eraser.png') repeat top left;
+    background: url('../images/eraser.png');
     position : absolute;
     display: inline-block;
     padding-right: 10px;
@@ -70,6 +70,20 @@ header {
         font-size: 22px;
       }
     }
+  }
+  div.write {
+    background: url('../images/pen.png') ;
+    position : absolute;
+    display: inline-block;
+    top: 460px;
+    right: 50%;
+    margin-right: -500px;
+    transform:rotate(35deg);
+    -webkit-transform:rotate(35deg);
+    height: 35px;
+    min-height: 35px;
+    width: 250px;
+    line-height: 35px;
   }
   ul {
     margin: 20px;
