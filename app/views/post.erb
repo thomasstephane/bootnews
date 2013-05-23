@@ -16,25 +16,27 @@
       <button type="submit" name="postvote" value="Down">V</button>
     </form>
     <% end %>
+    <a href="/profile/<%= @post.user_id%>"><img src=<%=gravatar(@post.user_email,38)%>></a>
     <h1><%= @post.title%></h1><h2>  votes: </h2><h1><span><%= @post.score %></span></h1>
 
-    </div>
+  </div>
   
 
-  <p><%= @post.url %></p>
+  <a target="_blank" href=<%= @post.url %>><p><%= @post.url %></p></a>
   <p><%= @post.post %></p>
   <ul>
     <%@comments.each do |comment|%>
     <li>
-      <% if @existing_comment_vote[comment.id] %>
-
+      
       <div class="comment-title">
-      <form name="commentvoter" action="/post/<%=@post.id%>/<%=comment.id%>/vote" method="post">
-        <button type="submit" name="commentvote" value="Up" label=<%= comment.id %>>V</button>
-        <button type="submit" name="commentvote" value="Down" label=<%= comment.id %>>V</button>
-      </form>
-      <% end %>
-      <%=comment.comment + " | votes: "%><span><%= comment.score %></span>
+        <a href="/profile/<%= comment.user_id%>"><img src=<%=gravatar(comment.user_email,35)%>></a>
+        <%=comment.comment%><h2> votes: </h2><span><%= comment.score %></span>
+        <% if @existing_comment_vote[comment.id] %>
+        <form name="commentvoter" action="/post/<%=@post.id%>/<%=comment.id%>/vote" method="post">
+          <button type="submit" name="commentvote" value="Up" label=<%= comment.id %>>V</button>
+          <button type="submit" name="commentvote" value="Down" label=<%= comment.id %>>V</button>
+        </form>
+        <% end %>
       </div>
     </li>
     <% end %>

@@ -18,4 +18,16 @@ class User < ActiveRecord::Base
     self.password_hash = @password
   end
 
+  def total_votes
+    PostVote.where("user_id = ?",self.id).count + CommentVote.where("user_id = ?",self.id).count 
+  end
+
+  def total_posts
+    Post.where("user_id = ?",self.id).count
+  end
+
+  def total_comments
+    Comment.where("user_id = ?",self.id).count 
+  end
+
 end

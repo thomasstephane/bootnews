@@ -1,4 +1,4 @@
-post '/post/:post_id/vote' do
+post '/post/:post_id/vote' do |post_id|
   if session[:user_id]
      p params
     if params[:postvote] == "Up"
@@ -6,7 +6,7 @@ post '/post/:post_id/vote' do
     else
       @vote = -1
     end
-    @post_vote = PostVote.create(user_id: session[:user_id], post_id: params[:post_id], vote: @vote)
+    @post_vote = PostVote.create(user_id: session[:user_id], post_id: post_id, vote: @vote)
   end
   content_type :json
   {vote: @vote}.to_json

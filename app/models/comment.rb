@@ -8,4 +8,12 @@ class Comment < ActiveRecord::Base
   def score
     CommentVote.where("comment_id = ?", self.id).sum('vote').to_s
   end
+  
+  def user_name
+    User.find(self.user_id).name
+  end
+  
+  def user_email
+    User.find(self.user_id).email
+  end
 end

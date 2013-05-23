@@ -173,16 +173,16 @@ header {
     h1 { 
         display: inline-block;
         vertical-align: middle;
-        margin-bottom: 20px;
       list-style: none;
       text-align: left;
       line-height: 35px;
       font-size: 34px;
       span {
-        margin-left: 20px;
+        margin-left: 10px;
         display: inline-block;
         vertical-align: middle;
-        font-size: 12px;
+      line-height: 35px;
+      font-size: 18px;
       }
     }
     h2 {
@@ -214,6 +214,90 @@ header {
         -webkit-transform:rotate(180deg);
         }
       }
+    }
+  }
+  div.comment-title {
+    h1 { 
+        display: inline-block;
+        vertical-align: middle;
+      list-style: none;
+      text-align: left;
+      line-height: 35px;
+      font-size: 34px;
+      span {
+        margin-left: 10px;
+        display: inline-block;
+        vertical-align: middle;
+      line-height: 35px;
+      font-size: 18px;
+      }
+    }
+    h2 {
+      margin-left: 30px;
+        display: inline-block;
+        vertical-align: middle;
+      line-height: 35px;
+      font-size: 12px;
+    }
+    img {
+      border-radius: 6px;
+      vertical-align: middle;
+      display: inline-block;
+      margin-right: 20px;
+    }
+    display: inline-block;     
+    vertical-align: middle;
+    line-height: 35px;
+    form {
+      display: inline-block;     
+      vertical-align: middle;
+      min-width: 20px;
+      line-height: 35px;
+      button {
+        display: block;     
+        line-height: 12px;
+        font-size: 14px;
+        &[value="Up"] {
+        -webkit-transform:rotate(180deg);
+        }
+      }
+    }
+  }
+  a p {
+    text-align: center;
+  }
+  p {
+    margin: 20px;
+    text-align: left;
+  }
+  #user-profile {
+    #bio {
+      display: block;
+      padding-left: 190px;
+      padding-top: 20px;
+      h1 {
+      margin-left: 20px;
+      text-align: left;
+      line-height: 35px;
+      font-size: 34px;
+      }
+      p {
+        
+      }
+    }
+    h3 {
+      margin-top: 40px;
+      margin-left: 20px;
+      text-align: left;
+      line-height: 35px;
+      font-size: 24px;
+    }
+    img {
+    float: left;
+    clear: both;
+      border-radius: 12px;
+      display: inline-block;
+      margin: 20px;
     }
   }
 }

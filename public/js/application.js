@@ -18,13 +18,12 @@ $(document).ready(function() {
     var comment = $(this).attr('label');
     $.ajax({
       type: 'post',
-      url: $('form[name="commentvoter"]').attr('action'),
+      url: $(this).parent().attr('action'),
       data: ("commentvote=" + box)
       }).done(function(data) {
-
         $('button[label="' + comment + '"]').parent().toggle("slow");
-        var score = parseInt($('button[label="' + comment + '"]').parent().siblings().text());
-        $('button[label="' + comment + '"]').parent().siblings().text(score + data.vote);
+        var score = parseInt($('button[label="' + comment + '"]').parent().parent().find('span').text());
+        $('button[label="' + comment + '"]').parent().parent().find('span').text(score + data.vote);
       });
   });
 });

@@ -7,7 +7,7 @@
 
 get '/post/:post_id' do |post_id|
   @post = Post.find_by_id(post_id)
-  @comments = Comment.where("post_id = ?", post_id)
+  @comments = Comment.where("post_id = ?", post_id).sort_by { |comment| - comment.score.to_i}
   @user = User.find_by_id(session[:user_id])
   @existing_post_vote = PostVote.find_by_user_id_and_post_id(session[:user_id], post_id)
 

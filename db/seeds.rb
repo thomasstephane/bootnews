@@ -15,5 +15,5 @@ User.create(username: "Travis", password: "password", email: "travis.lawrence12@
 end
 
 200.times do |i|
-  Comment.create(comment: "new comment #{i}", user_id: (1 + rand(20)), post_id: (1 + rand(10)))
+  Comment.create(comment: "new comment #{i}", user_id: (1 + rand(10)), post_id: (1 + rand(10)))
 end

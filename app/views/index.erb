@@ -13,7 +13,7 @@
   <ul>
     <%@posts.each do |post|%>
     <li><a href="/profile/<%= post.user_id%>"><img src=<%=gravatar(post.user_email,35)%>></a>
-      <a href="/post/<%=post.id%>"><%=post.title%><span> votes: <%=post.score%></span></a>
+      <a href="/post/<%=post.id%>"><%=post.title%><span> votes: <%=post.score%>, comments: <%=post.comment_nb %> </span></a>
       </li>
     <% end %>
   </ul>

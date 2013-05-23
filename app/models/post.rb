@@ -16,4 +16,8 @@ class Post < ActiveRecord::Base
   def user_email
     User.find(self.user_id).email
   end
+
+  def comment_nb
+    Comment.where("post_id = ?",self.id).count
+  end
 end
