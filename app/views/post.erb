@@ -1,8 +1,10 @@
 <div class="container">
-  <h1><%= @post.title + " | votes: " + @post.score %></h1>
+  <div class="post-title">
+    <h1><%= @post.title + " | votes: "%><span><%= @post.score %></span></h1>
+    </div>
   <% unless @existing_post_vote %>
   
-  <form name="input" action="/post/<%=@post.id%>/vote" method="post">
+  <form name="postvoter" action="/post/<%=@post.id%>/vote" method="post">
     <button type="submit" name="postvote" value="Up">Up</button>
     <button type="submit" name="postvote" value="Down">Down</button>
   </form>
@@ -15,12 +17,14 @@
     <li>
       <% if @existing_comment_vote[comment.id] %>
 
-      <form name="input" action="/post/<%=@post.id%>/<%=comment.id%>/vote" method="post">
-        <button type="submit" name="commentvote" value="Up">Up</button>
+      <div class="comment-title">
+      <form name="commentvoter" action="/post/<%=@post.id%>/<%=comment.id%>/vote" method="post">
+        <button type="submit" name="commentvote" value="Up" label=<%= comment.id %>>Up</button>
         <button type="submit" name="commentvote" value="Down">Down</button>
       </form>
       <% end %>
-      <%=comment.comment + " | votes: " + comment.score %>
+      <%=comment.comment + " | votes: "%><span><%= comment.score %></span>
+      </div>
     </li>
     <% end %>
   </ul>
