@@ -18,6 +18,7 @@ gem 'rake'
 gem 'shotgun'
 gem 'bcrypt-ruby'
 gem 'sass'
+gem 'erubis'
 
 group :test do
   gem 'faker'
